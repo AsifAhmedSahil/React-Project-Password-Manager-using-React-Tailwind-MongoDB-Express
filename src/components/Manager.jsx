@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 
@@ -6,13 +6,24 @@ const Manager = () => {
   const ref = useRef()
   const [status,setStatus] = useState(true)
   const [form,setForm] = useState({site:'',username:'',password:''})
+  const [passwordArray,setPasswordArray] = useState([])
+
+  useEffect(()=>{
+    let passwords =localStorage.getItem('passwords')
+    if(passwords){
+      setPasswordArray(JSON.parse(passwords))
+    }
+  },[])
 
   const showPassword = () => {
 
   }
 
   const savePassword = () =>{
-    console.log(form)
+    // console.log(form)
+    setPasswordArray([...passwordArray,form])
+    localStorage.setItem('passwords',JSON.stringify([...passwordArray,form]))
+    console.log(passwordArray)
 
   }
 
