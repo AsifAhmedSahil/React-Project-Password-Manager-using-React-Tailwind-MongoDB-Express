@@ -89,6 +89,41 @@ const Manager = () => {
            Add Password
         </button>
         </div>
+
+        <div>
+          <h3 className="text-2xl font-bold ">Your Passwords</h3>
+
+          {
+            passwordArray.length === 0 && <div>No passwords to show</div>
+          }
+
+          {
+            passwordArray.length != 0 &&<table class="table-auto text-center mt-8 w-full overflow-hidden rounded-md">
+            <thead className="bg-green-700 text-white">
+              <tr>
+                <th className="py-2">Site</th>
+                <th className="py-2">User Name</th>
+                <th className="py-2">Password</th>
+              </tr>
+            </thead>
+            <tbody className="bg-green-100">
+              {
+                passwordArray.map((item,index) =>{
+                    return <tr key={index}>
+                    <td className="py-2">{item.site}</td>
+                    <td className="py-2">{item.username}</td>
+                    <td className="py-2">{item.password}</td>
+                  </tr>
+                })
+              }
+              
+              
+            </tbody>
+          </table>
+          }
+
+         
+        </div>
         
       </div>
     </>
