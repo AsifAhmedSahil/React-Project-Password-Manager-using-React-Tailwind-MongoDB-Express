@@ -2,28 +2,22 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav className="bg-slate-800 h-14  p-4 flex justify-between items-center text-white font-bold ">
+    <nav className="bg-slate-800 h-14 p-8 md:p-4 flex justify-between items-center text-white font-bold ">
       <div className="logo font-bold text-2xl">
         <span className="text-green-600">&lt;</span>
         passop
         <span className="text-green-600">/&gt;</span>
       </div>
 
-      <div>
-        <ul className="flex gap-6 ">
-          <li>Home</li>
-          <li>Home</li>
-          <li>Home</li>
-        </ul>
-      </div>
+      
 
       <div>
         <button
           type="button"
-          class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 me-2 mb-2"
+          class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 me-2 mb-2 mt-3"
         >
           <svg
-            class="w-4 h-4 me-2"
+            class="w-4 h-4 md:me-2"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
