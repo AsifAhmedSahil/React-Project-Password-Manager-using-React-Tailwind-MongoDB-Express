@@ -1,9 +1,11 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 import Navbar from './components/Navbar'
 import Manager from './components/Manager'
+
+import Last from './components/Last'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,7 +14,10 @@ function App() {
     <>
      
       <Navbar/>
+      <div className='min-h-[74vh]'>
       <Manager></Manager>
+      </div>
+      <Last></Last>
     </>
   )
 }

@@ -4,6 +4,7 @@ import { FaEyeSlash } from "react-icons/fa";
 
 const Manager = () => {
   const ref = useRef()
+  const passref = useRef()
   const [status,setStatus] = useState(true)
   const [form,setForm] = useState({site:'',username:'',password:''})
   const [passwordArray,setPasswordArray] = useState([])
@@ -16,6 +17,18 @@ const Manager = () => {
   },[])
 
   const showPassword = () => {
+    passref.current.type = 'text'
+    setStatus(!status)
+    if(passref.current.type = 'text'){
+      passref.current.type = 'password'
+      
+    }
+    else{
+      passref.current.type = 'text'
+      
+    }
+    
+    
 
   }
 
@@ -68,14 +81,17 @@ const Manager = () => {
 
             <input
             value={form.password}
+            ref={passref}
+            onClick={showPassword} 
             onChange={handleChange}
             placeholder="Enter Password"
               className="rounded-full w-full border border-green-500 px-4 py-1"
-              type="text"
+              type="password"
               name="password"
               id=""
             />
-            <span  onClick={() => setStatus(!status)} className="absolute right-[6px] top-[8px] cursor-pointer">{status? <FaEye width={20}/> : <FaEyeSlash/>}</span>
+            {/* <span  onClick={() => setStatus(!status)}  className="absolute right-[6px] top-[8px] cursor-pointer">{status? <FaEye width={20}/> : <FaEyeSlash/>}</span> */}
+            <span  onClick={() => setStatus(!status)}  className="absolute right-[6px] top-[8px] cursor-pointer">{status? <FaEye width={20}/> : <FaEyeSlash/>}</span>
 
             </div>
             
@@ -110,7 +126,7 @@ const Manager = () => {
               {
                 passwordArray.map((item,index) =>{
                     return <tr key={index}>
-                    <td className="py-2">{item.site}</td>
+                    <td className="py-2"><a href={item.site} target="_blank">{item.site}</a></td>
                     <td className="py-2">{item.username}</td>
                     <td className="py-2">{item.password}</td>
                   </tr>
