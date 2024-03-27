@@ -58,15 +58,12 @@ const Manager = () => {
         console.log(data);
         if (data.insertedId) {
           refetch()
-          toast("Password Saved ", {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your password has been saved",
+            showConfirmButton: false,
+            timer: 1500
           });
 
           // refetch();
@@ -80,16 +77,17 @@ const Manager = () => {
 
   const handleEdit = (id) => {
 
-    console.log(id)
+    // console.log(id)
     
     fetch(`http://localhost:3000/passwords/${id}`)
     .then(res => res.json())
     .then(data => {
       
-      console.log(data);
+      console.log(data.site);
       // setDesPass(data)
-      setForm(data.length > 0 ? data[0] : {});
+      setForm({site: `${data.site}` , username: `${data.username}` , password: `${data.password}`});
 
+      console.log(setForm.site)
       
 
       
