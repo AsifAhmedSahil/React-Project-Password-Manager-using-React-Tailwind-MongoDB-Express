@@ -133,9 +133,11 @@ const Manager = () => {
             if (data.deletedCount > 0) {
               refetch();
               Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
+                position: "top-end",
                 icon: "success",
+                title: "Your password Deleted Successfully !",
+                showConfirmButton: false,
+                timer: 1500,
               });
             }
           });
