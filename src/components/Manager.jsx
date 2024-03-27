@@ -175,16 +175,16 @@ const Manager = () => {
       />
 
       <ToastContainer />
-      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+      <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
 
       <div className=" mx-auto  max-w-5xl mt-32">
-        <h3 className="font-bold text-2xl text-center mb-4">
+        <h3 className="font-bold text-4xl text-center mb-4 text-white">
           <span className="text-green-600">&lt;</span>
-          passop
+          SecurePass
           <span className="text-green-600">/&gt;</span>
         </h3>
-        <p className="text-center text-green-700 text-lg">
-          your own password manager
+        <p className="text-center  text-white text-lg mb-5">
+        Locking Your Digital World, One Key at a Time!
         </p>
         <div className="flex flex-col p-4 gap-6 text-black items-center">
           <input
@@ -229,13 +229,18 @@ const Manager = () => {
           </div>
           <button
             onClick={savePassword}
-            className="flex justify-center items-center gap-3 bg-green-400 w-fit px-5 py-2 rounded-full"
+            className="flex justify-center items-center gap-3  w-fit px-5 py-2 rounded-full"
           >
-            <lord-icon
-              src="https://cdn.lordicon.com/slmechys.json"
-              trigger="hover"
-            ></lord-icon>
-            Save
+            
+            <div class="relative inline-flex  group">
+        <div
+            class="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
+        </div>
+        <a href="#" title="Get quote now"
+            class="relative inline-flex items-center justify-center px-6 py-3 mt-3 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+            role="button">Save it now
+        </a>
+    </div>
           </button>
         </div>
 
@@ -246,7 +251,7 @@ const Manager = () => {
 
           {passwordArray?.length != 0 && (
             <table className="table-auto text-center mt-8 w-full overflow-hidden rounded-md">
-              <thead className="bg-green-700 text-white">
+              <thead className="bg-gradient-to-b from-gray-900 via-purple-900 to-violet-600 text-white">
                 <tr>
                   <th className="py-2">Site</th>
                   <th className="py-2">User Name</th>
@@ -257,8 +262,8 @@ const Manager = () => {
               <tbody className="bg-green-100">
                 {passwordArray?.map((item, index) => {
                   return (
-                    <tr key={index}>
-                      <td className="py-2">
+                    <tr key={index} className="border border-b-2">
+                      <td className="py-2 ">
                         <div className="flex justify-center items-center ">
                           <a href={item.site} target="_blank">
                             {item.site}
