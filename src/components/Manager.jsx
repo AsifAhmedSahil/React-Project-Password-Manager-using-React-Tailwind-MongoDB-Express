@@ -46,9 +46,33 @@ const Manager = () => {
   // };
 
   const savePassword = async () => {
-    console.log(form);
+    console.log(form.id);
 
-    await fetch("http://localhost:3000/passwords", {
+    if(form.id){
+      const modiData = await fetch(`http://localhost:3000/passwords/${form.id}`,{
+        method: 'PATCH',
+        headers: { "content-type": "application/json" },
+      body: JSON.stringify(form)
+      })
+
+      console.log(modiData.statusText)
+      if(modiData.statusText){
+        setForm({ site: "", username: "", password: "" })
+        refetch()
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Password updated successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+      
+    }
+    else{
+
+    
+     await fetch("http://localhost:3000/passwords", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(form),
@@ -69,25 +93,30 @@ const Manager = () => {
           // refetch();
         }
       });
+    }
   };
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleEdit = (id) => {
+  const handleEdit = async (id) => {
 
     // console.log(id)
     
-    fetch(`http://localhost:3000/passwords/${id}`)
+    await fetch(`http://localhost:3000/passwords/${id}`)
     .then(res => res.json())
     .then(data => {
       
-      console.log(data.site);
+      // console.log(data);
+      // console.log(id)
       // setDesPass(data)
-      setForm({site: `${data.site}` , username: `${data.username}` , password: `${data.password}`});
+      setForm({site: `${data.site}` , username: `${data.username}` , password: `${data.password}`,id:`${id}`});
 
-      console.log(setForm.site)
+      
+      
+
+      console.log(form)
       
 
       
